@@ -54,6 +54,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="email"
+                    android:text="@={DialogRegisterViewModel.email}"
                     android:fontFamily="@font/svn_gilroy_regular"/>
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -70,6 +71,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="password"
+                    android:text="@={DialogRegisterViewModel.password}"
                     android:fontFamily="@font/svn_gilroy_regular"/>
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -86,6 +88,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="confirm password"
+                    android:text="@={DialogRegisterViewModel.confirmPassword}"
                     android:fontFamily="@font/svn_gilroy_regular"/>
             </com.google.android.material.textfield.TextInputLayout>
 
