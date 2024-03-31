@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    tools:context=".views.activities.GetStartedActivity">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="GetStartedViewModel"
+            type="com.example.myfoodorder.viewmodels.GetStartedViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="367dp"
+            android:layout_height="333dp"
+            android:layout_gravity="center"
+            android:src="@drawable/getstarted"
+            android:layout_marginTop="70dp"/>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/svn_gilroy_semi_bold"
+            android:gravity="center"
+            android:text="Food to blow your mind!"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Chon chung toi de duoc nhung thu tot nhat"
+            android:fontFamily="@font/svn_gilroy_regular"/>
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="vi du nhu me cua ban"
+            android:fontFamily="@font/svn_gilroy_regular"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/yellow_background"
+            android:fontFamily="@font/svn_gilroy_semi_bold"
+            android:onClick="@{() -> GetStartedViewModel.onRegisterClick()}"
+            android:text="Create account" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/black_background_with_yellow_border"
+            android:fontFamily="@font/svn_gilroy_semi_bold"
+            android:text="Login"
+            android:onClick="@{() -> GetStartedViewModel.onLoginClick()}"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+
+</layout>
