@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:title="Home" />
-    <item android:title="Bag" />
-    <item android:title="Orders" />
-    <item android:title="Profile" />
+    <item android:title="Home"
+        android:id="@+id/nav_home"/>
+    <item android:title="Bag"
+        android:id="@+id/nav_bag"/>
+    <item android:title="Orders"
+        android:id="@+id/nav_orders"/>
+    <item android:title="Profile"
+        android:id="@+id/nav_profile"/>
 </menu>

@@ -29,12 +29,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="Title"
+                android:text="@{MainViewModel.title}"
                 android:fontFamily="@font/svn_gilroy_semi_bold"
                 android:textSize="20dp" />
         </RelativeLayout>
 
         <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewpager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@+id/bottomNavigation"
@@ -51,8 +52,8 @@
             app:menu="@menu/menu_bottom_navigate"
             app:itemIconTint="@color/custom_bottom_navigation"
             app:itemTextColor="@color/custom_bottom_navigation"
-            app:labelVisibilityMode="labeled">
-
+            app:labelVisibilityMode="labeled"
+            app:item_selected="@{viewpager}">
         </com.google.android.material.bottomnavigation.BottomNavigationView>
 
     </RelativeLayout>

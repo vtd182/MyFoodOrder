@@ -26,7 +26,6 @@ public class GetStartedActivity extends AppCompatActivity {
         getStartedViewModel = new GetStartedViewModel(this);
         activityGetStartedBinding.setGetStartedViewModel(getStartedViewModel);
         setContentView(activityGetStartedBinding.getRoot());
-        //setContentView(R.layout.activity_get_started);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
