@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="RestaurantModel"
+            type="com.example.myfoodorder.models.Restaurant" />
+    </data>
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -11,6 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:layout_marginBottom="20dp"
             >
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,16 +26,19 @@
                 android:paddingStart="10dp"
                 android:paddingTop="10dp"
                 android:paddingEnd="10dp"
-                android:translationZ="3dp">
+                android:translationZ="3dp"
+                android:onClick="@{(view) -> RestaurantModel.goToRestaurantDetail(view)}"
+                >
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardView"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:cardCornerRadius="35dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toTopOf="parent"
+                    >
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/img_restaurant"
@@ -37,7 +47,8 @@
                         android:scaleType="fitCenter"
                         android:scaleX="1.2"
                         android:scaleY="1.2"
-                        tools:srcCompat="@drawable/banana_lickety_split" />
+                        tools:srcCompat="@drawable/banana_lickety_split"
+                        app:restaurant_banner_image="@{RestaurantModel.imageUrl}"/>
 
                     <ImageView
                         android:id="@+id/imageView3"
@@ -70,7 +81,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:fontFamily="@font/svn_gilroy_semi_bold"
-                android:text="The Ice Cream Factory"
+                android:text="@{RestaurantModel.name}"
                 android:textSize="23sp"
                 tools:ignore="TextSizeCheck" />
 
@@ -84,7 +95,10 @@
                     android:layout_height="45dp"
                     android:layout_marginStart="-50dp"
                     android:scaleX="0.5"
-                    android:scaleY="0.5" />
+                    android:scaleY="0.5"
+                    android:rating="@{RestaurantModel.rating}"
+                    android:progressTint="#FFA500"
+                    android:isIndicator="true"/>
 
 
                 <FrameLayout
@@ -101,7 +115,7 @@
                         android:drawablePadding="10dp"
                         android:fontFamily="@font/svn_gilroy_regular"
                         android:gravity="center"
-                        android:text="112km away" />
+                        android:text="69km away" />
                 </FrameLayout>
 
 

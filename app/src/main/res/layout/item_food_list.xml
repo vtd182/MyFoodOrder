@@ -52,7 +52,7 @@
                     android:fontFamily="@font/svn_gilroy_regular"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
-                    android:text="Kem này khá ngon nhé nên ăn thử để biết đe còn ăn tiế chứ đúng không né vì nó rất ngon đến mức ai cuũng phải thèm"
+                    android:text="Kem này khá ngon nhé nên ăn thử để biết đe còn ăn tiếp chứ đúng không nè vì nó rất ngon đến mức ai cuũng phải thèm"
                     android:textSize="12sp" />
 
                 <TextView

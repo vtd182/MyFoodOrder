@@ -1,17 +1,26 @@
 package com.example.myfoodorder.models;
 
-public class Restaurant {
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+
+import androidx.databinding.BaseObservable;
+import androidx.databinding.BindingAdapter;
+
+import com.example.myfoodorder.constants.Constants;
+import com.example.myfoodorder.constants.GlobalFunction;
+import com.example.myfoodorder.utils.GlideUtils;
+import com.example.myfoodorder.views.activities.RestaurantDetailActivity;
+
+import java.io.Serializable;
+
+public class Restaurant extends BaseObservable implements Serializable {
+    private int id;
     private String name;
     private String imageUrl;
-    private String rating;
+    private int rating;
 
     public Restaurant() {
-    }
-
-    public Restaurant(String name, String imageUrl, String rating) {
-        this.name = name;
-        this.imageUrl = imageUrl;
-        this.rating = rating;
     }
 
     public String getName() {
@@ -22,7 +31,20 @@ public class Restaurant {
         return imageUrl;
     }
 
-    public String getRating() {
+    public int getRating() {
         return rating;
     }
+
+    @BindingAdapter("restaurant_banner_image")
+    public static void loadRestaurantBanner(ImageView imageView, String imageUrl) {
+        GlideUtils.loadUrlBanner(imageUrl, imageView);
+    }
+
+    public void goToRestaurantDetail(View view) {
+        // Go to restaurant detail
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(Constants.KEY_INTENT_RESTAURANT_OBJECT, this);
+        GlobalFunction.startActivity(view.getContext(), RestaurantDetailActivity.class, bundle);
+    }
+
 }

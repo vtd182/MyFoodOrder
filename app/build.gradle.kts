@@ -53,6 +53,8 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
     implementation("com.google.firebase:firebase-database")
     implementation ("de.hdodenhof:circleimageview:3.1.0")
+    //glide
+    implementation("com.github.bumptech.glide:glide:4.12.0")
 
 
 }

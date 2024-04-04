@@ -5,6 +5,11 @@
     android:id="@+id/main"
     tools:context=".views.activities.RestaurantDetailActivity">
 
+    <data>
+        <variable
+            name="RestaurantDetailViewModel"
+            type="com.example.myfoodorder.viewmodels.RestaurantDetailViewModel" />
+    </data>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -25,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/banana_lickety_split"
+                app:restaurant_banner_image="@{RestaurantDetailViewModel.getRestaurant().imageUrl}"
                 />
 
 
@@ -40,8 +45,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/svn_gilroy_semi_bold"
                     android:gravity="center"
-                    android:text="Nhà hàng ba con cừu"
-                    android:textSize="20sp"/>
+                    android:text="@{RestaurantDetailViewModel.getRestaurant().name}"
+                    android:textSize="25sp"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -53,7 +58,10 @@
                         android:layout_height="45dp"
                         android:layout_marginStart="-60dp"
                         android:scaleX="0.5"
-                        android:scaleY="0.5" />
+                        android:scaleY="0.5"
+                        android:rating="@{RestaurantDetailViewModel.getRestaurant().rating}"
+                        android:progressTint="#FFA500"
+                        android:isIndicator="true"/>
 
 
                     <FrameLayout
@@ -74,7 +82,14 @@
                     </FrameLayout>
 
                 </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Menu"
+                    android:fontFamily="@font/svn_gilroy_semi_bold"
+                    android:textSize="20sp" />
             </LinearLayout>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
