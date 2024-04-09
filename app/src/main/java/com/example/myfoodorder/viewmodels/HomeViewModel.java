@@ -20,6 +20,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class HomeViewModel {
     Context mContext;
     ObservableList<Restaurant> listRestaurant = new ObservableArrayList<>();
@@ -56,17 +58,17 @@ public class HomeViewModel {
                             listRestaurant = new ObservableArrayList<>();
                         }
 
+
                         for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                             Restaurant restaurant = dataSnapshot.getValue(Restaurant.class);
-                            if (restaurant == null) {
-                                return;
+                            if (restaurant != null) {
+                                if (StringUtils.isEmpty(key)) {
+                                    listRestaurant.add(0, restaurant);
+                                } else {
+                                    // Search restaurant by name
+                                }
                             }
 
-                            if (StringUtils.isEmpty(key)) {
-                                listRestaurant.add(0, restaurant);
-                            } else {
-                                // Search restaurant by name
-                            }
                         }
                         GlobalFunction.showToastMessage(mContext, "Get list restaurant success");
                     }

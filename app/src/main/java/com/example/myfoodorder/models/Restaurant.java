@@ -13,9 +13,20 @@ import com.example.myfoodorder.utils.GlideUtils;
 import com.example.myfoodorder.views.activities.RestaurantDetailActivity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Restaurant extends BaseObservable implements Serializable {
     private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     private String name;
     private String imageUrl;
     private int rating;

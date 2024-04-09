@@ -55,6 +55,8 @@ dependencies {
     implementation ("de.hdodenhof:circleimageview:3.1.0")
     //glide
     implementation("com.github.bumptech.glide:glide:4.12.0")
+    implementation ("androidx.room:room-runtime:2.6.1")
+    annotationProcessor ("androidx.room:room-compiler:2.6.1")
 
 
 }

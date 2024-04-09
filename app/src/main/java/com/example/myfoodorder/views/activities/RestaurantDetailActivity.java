@@ -10,6 +10,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.myfoodorder.R;
 import com.example.myfoodorder.constants.Constants;
+import com.example.myfoodorder.constants.GlobalFunction;
 import com.example.myfoodorder.databinding.ActivityRestaurantDetailBinding;
 import com.example.myfoodorder.models.Restaurant;
 import com.example.myfoodorder.viewmodels.RestaurantDetailViewModel;

@@ -27,10 +27,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(activityMainBinding.getRoot());
         mMainViewModel = new MainViewModel();
         activityMainBinding.setMainViewModel(mMainViewModel);
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            Toast.makeText(this, "User: " + user.getDisplayName(), Toast.LENGTH_SHORT).show();
-        }
     }
 
     public void setToolBar(boolean isShow, String title) {

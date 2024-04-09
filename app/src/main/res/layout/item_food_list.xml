@@ -2,10 +2,16 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+        <variable
+            name="FoodModel"
+            type="com.example.myfoodorder.models.Food" />
+    </data>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="15dp">
+        android:padding="15dp"
+        android:onClick="@{(view) -> FoodModel.goToFoodDetail(view)}">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/layout_image"
@@ -17,8 +23,10 @@
                 android:id="@+id/imageView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                app:food_image="@{FoodModel.imageUrl}"
                 app:srcCompat="@drawable/banana_lickety_split"
-                android:scaleType="centerCrop"/>
+                android:scaleType="centerCrop"
+                />
         </androidx.cardview.widget.CardView>
 
         <LinearLayout
@@ -33,7 +41,7 @@
                 android:id="@+id/tv_name_item_food"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Kem tràng tiền"
+                android:text="@{FoodModel.name}"
                 android:fontFamily="@font/svn_gilroy_semi_bold"
                 android:textSize="20sp"/>
 
@@ -52,7 +60,7 @@
                     android:fontFamily="@font/svn_gilroy_regular"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
-                    android:text="Kem này khá ngon nhé nên ăn thử để biết đe còn ăn tiếp chứ đúng không nè vì nó rất ngon đến mức ai cuũng phải thèm"
+                    android:text="@{FoodModel.description}"
                     android:textSize="12sp" />
 
                 <TextView
@@ -61,8 +69,10 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/svn_gilroy_semi_bold"
                     android:gravity="right|center"
-                    android:text="200.000d"
-                    android:textSize="15sp" />
+                    android:text="@{String.valueOf(FoodModel.price)}"
+                    android:textSize="15sp"
+                    android:textColor="#FFA500"
+                    />
             </LinearLayout>
         </LinearLayout>
 

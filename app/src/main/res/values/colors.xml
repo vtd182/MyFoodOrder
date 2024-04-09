@@ -5,4 +5,5 @@
     <color name="colorPrimary">#FFECAA</color>
     <color name="colorPrimary300">#CF8600</color>
     <color name="transparent_black">#80000000</color>
+    <color name="transparent_white">#80FFFFFF</color>
 </resources>
