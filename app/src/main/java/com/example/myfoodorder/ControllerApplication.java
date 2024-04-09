@@ -33,7 +33,7 @@ public class ControllerApplication extends Application {
     }
 
     public DatabaseReference getRestaurantDatabaseReference() {
-        return mFirebaseDatabase.getReference("/restaurant");
+        return mFirebaseDatabase.getReference("/restaurants");
     }
 
     public void getFoodsByRestaurantId(int restaurantId, final FirebaseCallBack<List<Food>> callBack) {
@@ -61,7 +61,7 @@ public class ControllerApplication extends Application {
 
     public void getRestaurantById(int restaurantId, final FirebaseCallBack<Restaurant> callBack) {
         // Get restaurant by id
-        DatabaseReference restaurantDatabaseReference = mFirebaseDatabase.getReference("/restaurant");
+        DatabaseReference restaurantDatabaseReference = mFirebaseDatabase.getReference("/restaurants");
         Query query = restaurantDatabaseReference.orderByChild("id").equalTo(restaurantId);
         query.addValueEventListener(new com.google.firebase.database.ValueEventListener() {
             @Override

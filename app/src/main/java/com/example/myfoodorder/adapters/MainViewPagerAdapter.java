@@ -9,7 +9,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
+import com.example.myfoodorder.views.fragments.BagFragment;
 import com.example.myfoodorder.views.fragments.HomeFragment;
+import com.example.myfoodorder.views.fragments.OrdersFragment;
 import com.example.myfoodorder.views.fragments.ProfileFragment;
 
 public class MainViewPagerAdapter extends FragmentStateAdapter {
@@ -34,9 +36,18 @@ public class MainViewPagerAdapter extends FragmentStateAdapter {
                 Log.d("MainViewPagerAdapter", "createFragment: HomeFragment");
                 return new HomeFragment();
             }
-            case 3:
+            case 1:
+            {
+                Log.d("MainViewPagerAdapter", "createFragment: BagFragment");
+                return new BagFragment();}
+            case 2: {
+                Log.d("MainViewPagerAdapter", "createFragment: OrdersFragment");
+                return new OrdersFragment();
+            }
+            case 3: {
                 Log.d("MainViewPagerAdapter", "createFragment: ProfileFragment");
                 return new ProfileFragment();
+            }
 
             default:
                 return new HomeFragment();

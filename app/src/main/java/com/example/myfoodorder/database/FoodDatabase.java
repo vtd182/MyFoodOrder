@@ -7,8 +7,9 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import com.example.myfoodorder.models.Food;
+import com.example.myfoodorder.models.Restaurant;
 
-@Database(entities = {Food.class}, version = 1)
+@Database(entities = {Food.class, Restaurant.class}, version = 1)
 public abstract class FoodDatabase extends RoomDatabase {
 
     private static final String DATABASE_NAME = "food.db";
@@ -23,6 +24,5 @@ public abstract class FoodDatabase extends RoomDatabase {
         }
         return instance;
     }
-
     public abstract FoodDAO foodDAO();
 }

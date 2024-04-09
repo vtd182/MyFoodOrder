@@ -29,6 +29,15 @@
             android:fontFamily="@font/svn_gilroy_semi_bold"
             android:gravity="center"
             android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{ProfileViewModel.userID}"
+            android:textSize="20sp"
+            android:fontFamily="@font/svn_gilroy_semi_bold"
+            android:gravity="center"
+            android:layout_marginTop="10dp"/>
     </LinearLayout>
 
 

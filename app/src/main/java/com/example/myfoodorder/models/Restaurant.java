@@ -6,6 +6,8 @@ import android.widget.ImageView;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.BindingAdapter;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 import com.example.myfoodorder.constants.Constants;
 import com.example.myfoodorder.constants.GlobalFunction;
@@ -16,7 +18,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity(tableName = "restaurant")
 public class Restaurant extends BaseObservable implements Serializable {
+    @PrimaryKey
     private int id;
 
     public int getId() {
@@ -30,6 +34,18 @@ public class Restaurant extends BaseObservable implements Serializable {
     private String name;
     private String imageUrl;
     private int rating;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
 
     public Restaurant() {
     }

@@ -6,7 +6,7 @@
     <LinearLayout
         android:padding="10dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
@@ -16,11 +16,15 @@
             android:paddingStart="10dp"
             android:text="Nhà hàng tiệc cưới Quang Trung"
             android:textSize="20dp"
-            android:fontFamily="@font/svn_gilroy_semi_bold"/>
+            android:fontFamily="@font/svn_gilroy_bold"/>
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/item_food_in_bag_list">
         </androidx.recyclerview.widget.RecyclerView>
+
+
+
     </LinearLayout>
 
 </layout>

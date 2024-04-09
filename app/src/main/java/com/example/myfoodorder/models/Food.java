@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.BindingAdapter;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.PrimaryKey;
 
 import com.example.myfoodorder.constants.Constants;
 import com.example.myfoodorder.constants.GlobalFunction;
@@ -16,16 +18,19 @@ import com.example.myfoodorder.views.activities.FoodDetailActivity;
 
 import java.io.Serializable;
 
-@Entity(tableName = "food")
+
+@Entity(foreignKeys = @ForeignKey(entity = Restaurant.class,
+        parentColumns = "id",
+        childColumns = "restaurantId"))
 public class Food extends BaseObservable implements Serializable {
+    @PrimaryKey
     private int id;
     private String name;
     private String imageUrl;
     private String description;
     private int price;
     private int availableQuantity;
-
-    private int orderQuantity = 0;
+    private int orderQuantity = 1;
 
     public int getAvailableQuantity() {
         return availableQuantity;
@@ -86,6 +91,14 @@ public class Food extends BaseObservable implements Serializable {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public int getOrderQuantity() {
+        return orderQuantity;
+    }
+
+    public void setOrderQuantity(int orderQuantity) {
+        this.orderQuantity = orderQuantity;
     }
 
     @Override

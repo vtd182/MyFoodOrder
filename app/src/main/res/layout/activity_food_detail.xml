@@ -20,8 +20,7 @@
             android:layout_marginTop="10dp"
             android:id="@+id/layout_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            android:background="#00000000">
+            android:layout_height="?actionBarSize">
 
             <TextView
                 android:id="@+id/tv_title"
@@ -48,14 +47,16 @@
                 android:layout_marginLeft="10dp"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                app:cardBackgroundColor="@color/transparent_white"
-                android:onClick="@{() -> FoodDetailViewModel.onClickButtonBack()}"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="0.1dp"
-                android:layout_centerVertical="true">
+                app:cardBackgroundColor="@color/transparent_white"
+                android:layout_centerVertical="true"
+                android:onClick="@{() -> FoodDetailViewModel.onClickButtonBack()}">
+
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:importantForAutofill="auto"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_back_arrow"
                     android:scaleX="0.4"

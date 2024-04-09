@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp"
+        android:background="@drawable/dashed_border"
+        android:layout_marginBottom="20dp">
+
+        <LinearLayout
+            android:padding="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/dashed_border">
+
+            <TextView
+                android:id="@+id/tv_restaurant_name_item_bag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nhà hàng tiệc cưới Quang Trung"
+                android:textSize="20dp"
+                android:fontFamily="@font/svn_gilroy_bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ABCDXYZ123"
+                android:textSize="15dp"
+                android:fontFamily="@font/svn_gilroy_regular"
+                android:layout_marginBottom="30dp"/>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/tv_total_price_item_bag"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Total amount"
+                        android:gravity="left"
+                        android:textSize="15dp"
+                        android:fontFamily="@font/svn_gilroy_medium"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="100000"
+                        android:gravity="left"
+                        android:textSize="20dp"
+                        android:fontFamily="@font/svn_gilroy_bold"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Quantity"
+                        android:textSize="15dp"
+                        android:gravity="right"
+                        android:fontFamily="@font/svn_gilroy_medium"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="4"
+                        android:gravity="right"
+                        android:textSize="20dp"
+                        android:fontFamily="@font/svn_gilroy_bold"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>
