@@ -62,7 +62,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:text="@{String.valueOf(DialogAddToBagViewModel.getFood().price)}"
+                        android:text="@{DialogAddToBagViewModel.strTotalPrice}"
                         android:textColor="@color/colorPrimary300"
                         android:fontFamily="@font/svn_gilroy_semi_bold"
                         android:textSize="18sp" />
@@ -70,38 +70,42 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:layout_marginTop="15dp">
 
                         <TextView
-                            android:id="@+id/textView9"
+                            android:id="@+id/tv_subtract_item_food"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:gravity="center"
                             android:layout_weight="1"
-                            android:text="-"
                             android:fontFamily="@font/svn_gilroy_semi_bold"
-                            android:textSize="15sp"/>
+                            android:gravity="center"
+                            android:text="-"
+                            android:onClick="@{() -> DialogAddToBagViewModel.onClickSubtractCount(tvQuantityItemFood)}"
+                            android:background="@drawable/gray_border"
+                            android:textSize="15sp" />
 
                         <TextView
-                            android:id="@+id/textView10"
+                            android:id="@+id/tv_quantity_item_food"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:gravity="center"
                             android:layout_weight="1"
-                            android:text="5"
-                            android:textSize="15sp"
-                            android:fontFamily="@font/svn_gilroy_semi_bold"/>
+                            android:fontFamily="@font/svn_gilroy_semi_bold"
+                            android:gravity="center"
+                            android:text="@{String.valueOf(DialogAddToBagViewModel.getFood().orderQuantity)}"
+                            android:textSize="15sp" />
 
                         <TextView
-                            android:id="@+id/textView11"
+                            android:id="@+id/tv_add_item_food"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:gravity="center"
                             android:layout_weight="1"
-                            android:textSize="15sp"
+                            android:fontFamily="@font/svn_gilroy_semi_bold"
+                            android:gravity="center"
                             android:text="+"
-                            android:fontFamily="@font/svn_gilroy_semi_bold"/>
+                            android:onClick="@{() -> DialogAddToBagViewModel.onClickAddCount(tvQuantityItemFood)}"
+                            android:background="@drawable/gray_border"
+                            android:textSize="15sp" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -124,8 +128,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Cancel"
-                    android:background="@drawable/yellow_background"
-                    android:onClick="@{() -> DialogAddToBagViewModel.onCancelClick()}"
+                    android:background="@drawable/gray_border_50dp"
+                    android:onClick="@{() -> DialogAddToBagViewModel.onCancelClick(tvQuantityItemFood)}"
                     android:layout_marginEnd="5dp"
                     />
 
@@ -137,7 +141,7 @@
                     android:text="Add to bag"
                     android:background="@drawable/yellow_background"
                     android:onClick="@{() -> DialogAddToBagViewModel.onAddToBagClick()}"
-                    android:layout_marginStart="5dp"/>
+                    android:layout_marginStart="5dp" />
             </LinearLayout>
 
         </LinearLayout>

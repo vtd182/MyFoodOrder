@@ -112,8 +112,6 @@
                 tools:listitem="@layout/item_food_list"
                 app:list_food_data="@{RestaurantDetailViewModel.listFoods}"
                 >
-
-
             </androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
     </RelativeLayout>

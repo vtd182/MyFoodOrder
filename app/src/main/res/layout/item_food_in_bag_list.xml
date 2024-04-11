@@ -2,6 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+        <variable
+            name="FoodModel"
+            type="com.example.myfoodorder.models.Food" />
+    </data>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,8 +23,10 @@
                 android:id="@+id/imageView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                app:food_image="@{FoodModel.imageUrl}"
                 app:srcCompat="@drawable/banana_lickety_split"
-                android:scaleType="centerCrop"/>
+                android:scaleType="centerCrop"
+                />
         </androidx.cardview.widget.CardView>
 
         <LinearLayout
@@ -33,7 +41,7 @@
                 android:id="@+id/tv_name_item_food"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Kem tràng tiền"
+                android:text="@{FoodModel.name}"
                 android:fontFamily="@font/svn_gilroy_semi_bold"
                 android:textSize="20sp"/>
 
@@ -41,7 +49,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
 
                 <TextView
                     android:id="@+id/textView6"
@@ -49,7 +58,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/svn_gilroy_semi_bold"
-                    android:text="200.000d"
+                    android:text="@{String.valueOf(FoodModel.totalPrice)}"
                     android:textSize="15sp" />
 
                 <LinearLayout
@@ -65,6 +74,8 @@
                         android:fontFamily="@font/svn_gilroy_semi_bold"
                         android:gravity="center"
                         android:text="-"
+                        android:onClick="@{() -> FoodModel.onClickButtonSubtract(tvSubtractItemFood)}"
+                        android:background="@drawable/gray_border"
                         android:textSize="15sp" />
 
                     <TextView
@@ -74,7 +85,7 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/svn_gilroy_semi_bold"
                         android:gravity="center"
-                        android:text="5"
+                        android:text="@{String.valueOf(FoodModel.orderQuantity)}"
                         android:textSize="15sp" />
 
                     <TextView
@@ -83,23 +94,24 @@
                         android:layout_height="30dp"
                         android:layout_weight="1"
                         android:fontFamily="@font/svn_gilroy_semi_bold"
+                        android:onClick="@{() -> FoodModel.onClickButtonAdd(tvAddItemFood)}"
                         android:gravity="center"
                         android:text="+"
+                        android:background="@drawable/gray_border"
                         android:textSize="15sp" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/textView15"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageButton
+            android:id="@+id/tvDeleteItemFood"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/remove"
             android:layout_alignParentEnd="true"
-            android:text="Delete"
-            android:fontFamily="@font/svn_gilroy_semi_bold"
-            android:textSize="15dp"/>
-
-
+            android:onClick="@{() -> FoodModel.onClickButtonDelete(tvDeleteItemFood)}"
+            >
+        </ImageButton>
     </RelativeLayout>
 
 </layout>

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".views.fragments.OrdersFragment">
+    tools:context=".views.fragments.OrdersFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable
@@ -14,6 +15,7 @@
         android:layout_height="match_parent"
         tools:listitem="@layout/item_order_list"
         android:padding="8dp"
+        app:list_order_data="@{OrdersViewModel.listOrders}"
         >
     </androidx.recyclerview.widget.RecyclerView>
 

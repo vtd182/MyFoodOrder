@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".views.fragments.BagFragment">
 
     <data>
@@ -17,7 +18,9 @@
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/layout_bottom">
+            android:layout_above="@+id/layout_bottom"
+            app:list_food_in_bag="@{BagViewModel.restaurantsWithFoods}"
+            app:calculate_price="@{tvTotalPrice}">
         </androidx.recyclerview.widget.RecyclerView>
 
 
@@ -47,7 +50,7 @@
                      <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1000"
+                            android:text="0 VND"
                             android:layout_weight="1"
                             android:textSize="16sp"
                             android:gravity="right"
@@ -69,7 +72,7 @@
                      <TextView
                          android:layout_width="wrap_content"
                          android:layout_height="wrap_content"
-                         android:text="1000"
+                         android:text="0 VND"
                          android:layout_weight="1"
                          android:textSize="16sp"
                          android:gravity="right"
@@ -89,9 +92,10 @@
                          android:layout_weight="1"
                          android:fontFamily="@font/svn_gilroy_bold"/>
                      <TextView
+                         android:id="@+id/tv_total_price"
                          android:layout_width="wrap_content"
                          android:layout_height="wrap_content"
-                         android:text="1000"
+                         android:text="@{BagViewModel.strPrice}"
                          android:layout_weight="1"
                          android:textSize="16sp"
                          android:gravity="right"
@@ -104,6 +108,7 @@
                      android:background="@drawable/yellow_background"
                      android:fontFamily="@font/svn_gilroy_semi_bold"
                      android:text="Check out"
+                     android:onClick="@{() -> BagViewModel.onClickCheckOut()}"
                      android:textAllCaps="false"
                      android:textSize="16sp" />
 

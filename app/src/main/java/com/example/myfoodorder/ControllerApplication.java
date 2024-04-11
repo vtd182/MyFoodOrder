@@ -2,10 +2,12 @@ package com.example.myfoodorder;
 
 import android.app.Application;
 import android.content.Context;
+import android.util.Log;
 
 import com.example.myfoodorder.callbacks.FirebaseCallBack;
 import com.example.myfoodorder.constants.GlobalFunction;
 import com.example.myfoodorder.models.Food;
+import com.example.myfoodorder.models.Order;
 import com.example.myfoodorder.models.Restaurant;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
@@ -34,6 +36,10 @@ public class ControllerApplication extends Application {
 
     public DatabaseReference getRestaurantDatabaseReference() {
         return mFirebaseDatabase.getReference("/restaurants");
+    }
+
+    public DatabaseReference getOrdersDatabaseReference() {
+        return mFirebaseDatabase.getReference("/orders");
     }
 
     public void getFoodsByRestaurantId(int restaurantId, final FirebaseCallBack<List<Food>> callBack) {
@@ -80,4 +86,30 @@ public class ControllerApplication extends Application {
             }
         });
     }
+
+    public void getOrdersByUserId(String userId, final FirebaseCallBack<List<Order>> callBack) {
+        // Get list of orders by user id
+        DatabaseReference orderDatabaseReference = mFirebaseDatabase.getReference("/orders");
+        Query query = orderDatabaseReference.orderByChild("userId").equalTo(userId);
+
+        Log.e("ControllerApplication", "getOrdersByUserId: " + userId);
+        query.addValueEventListener(new com.google.firebase.database.ValueEventListener() {
+            @Override
+            public void onDataChange(com.google.firebase.database.DataSnapshot snapshot) {
+                List<Order> orders = new ArrayList<>();
+                for (DataSnapshot postSnapshot : snapshot.getChildren()) {
+                    if (postSnapshot != null) {
+                        Order order = postSnapshot.getValue(Order.class);
+                        orders.add(order);
+                    }
+                }
+                callBack.onCallBack(orders);
+            }
+            @Override
+            public void onCancelled(com.google.firebase.database.DatabaseError error) {
+                GlobalFunction.showToastMessage(getApplicationContext(), "Get list orders failed");
+            }
+        });
+    }
+
 }

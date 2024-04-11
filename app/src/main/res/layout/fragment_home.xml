@@ -49,7 +49,6 @@
             android:layout_height="match_parent"
             tools:listitem="@layout/item_restaurant_list"
             app:list_restaurant_data="@{HomeViewModel.listRestaurant}">
-
         </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>
 </layout>

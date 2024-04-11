@@ -42,7 +42,6 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
     }
 
     public static class FoodViewHolder extends RecyclerView.ViewHolder {
-
         ItemFoodListBinding itemFoodListBinding;
 
         public FoodViewHolder(ItemFoodListBinding itemFoodListBinding) {

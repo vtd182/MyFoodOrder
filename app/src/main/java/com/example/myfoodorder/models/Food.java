@@ -9,19 +9,23 @@ import androidx.databinding.BaseObservable;
 import androidx.databinding.BindingAdapter;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import com.example.myfoodorder.constants.Constants;
 import com.example.myfoodorder.constants.GlobalFunction;
+import com.example.myfoodorder.listeners.IClickItemInBagListener;
 import com.example.myfoodorder.utils.GlideUtils;
 import com.example.myfoodorder.views.activities.FoodDetailActivity;
+import com.google.firebase.database.Exclude;
 
 import java.io.Serializable;
 
 
+
 @Entity(foreignKeys = @ForeignKey(entity = Restaurant.class,
         parentColumns = "id",
-        childColumns = "restaurantId"))
+        childColumns = "restaurantID"))
 public class Food extends BaseObservable implements Serializable {
     @PrimaryKey
     private int id;
@@ -32,6 +36,36 @@ public class Food extends BaseObservable implements Serializable {
     private int availableQuantity;
     private int orderQuantity = 1;
 
+    @Ignore
+    @com.google.firebase.database.Exclude
+    private int adapterPosition;
+
+    public int getAdapterPosition() {
+        return adapterPosition;
+    }
+
+    public void setAdapterPosition(int adapterPosition) {
+        this.adapterPosition = adapterPosition;
+    }
+
+    @com.google.firebase.database.Exclude
+    @Ignore
+    IClickItemInBagListener iClickItemCartListener;
+
+
+    public int getTotalPrice() {
+        if (totalPrice == 0) {
+            totalPrice = price;
+        }
+        return totalPrice;
+    }
+
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    private int totalPrice;
+
     public int getAvailableQuantity() {
         return availableQuantity;
     }
@@ -40,14 +74,14 @@ public class Food extends BaseObservable implements Serializable {
         this.availableQuantity = availableQuantity;
     }
 
-    private int restaurantId;
+    private int restaurantID;
 
-    public int getRestaurantId() {
-        return restaurantId;
+    public int getRestaurantID() {
+        return restaurantID;
     }
 
-    public void setRestaurantId(int restaurantId) {
-        this.restaurantId = restaurantId;
+    public void setRestaurantID(int restaurantID) {
+        this.restaurantID = restaurantID;
     }
 
     public Food() {
@@ -117,4 +151,41 @@ public class Food extends BaseObservable implements Serializable {
         bundle.putSerializable(Constants.KEY_INTENT_FOOD_OBJECT, this);
         GlobalFunction.startActivity(view.getContext(), FoodDetailActivity.class, bundle);
     }
+
+    public void onClickButtonSubtract(View view) {
+        int count = getOrderQuantity();
+        if (count <= 1) {
+            return;
+        }
+        int newCount = count - 1;
+
+        int totalPrice = getPrice() * newCount;
+        setOrderQuantity(newCount);
+        setTotalPrice(totalPrice);
+
+        iClickItemCartListener.updateItemFood(view.getContext(), this, getAdapterPosition());
+    }
+
+    public void onClickButtonAdd(View view) {
+        int newCount = getOrderQuantity() + 1;
+
+        int totalPrice = getPrice() * newCount;
+        setOrderQuantity(newCount);
+        setTotalPrice(totalPrice);
+
+        iClickItemCartListener.updateItemFood(view.getContext(), this, getAdapterPosition());
+    }
+
+    public IClickItemInBagListener getiClickItemCartListener() {
+        return iClickItemCartListener;
+    }
+
+    public void setiClickItemCartListener(IClickItemInBagListener iClickItemCartListener) {
+        this.iClickItemCartListener = iClickItemCartListener;
+    }
+
+    public void onClickButtonDelete(View view) {
+        iClickItemCartListener.clickDeteteFood(view.getContext(), this, getAdapterPosition());
+    }
+
 }

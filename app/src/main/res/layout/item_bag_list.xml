@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="RestaurantWithFoods"
+            type="com.example.myfoodorder.database.RestaurantWithFoods" />
+    </data>
+
     <LinearLayout
         android:padding="10dp"
         android:layout_width="match_parent"
@@ -14,17 +20,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="10dp"
-            android:text="Nhà hàng tiệc cưới Quang Trung"
+            android:text="@{RestaurantWithFoods.restaurant.name}"
             android:textSize="20dp"
             android:fontFamily="@font/svn_gilroy_bold"/>
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcv_food_in_bag"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:listitem="@layout/item_food_in_bag_list">
+            app:list_food_in_order_restaurant="@{RestaurantWithFoods.foods}"
+            android:layout_marginBottom="15dp">
         </androidx.recyclerview.widget.RecyclerView>
-
-
-
     </LinearLayout>
 
 </layout>

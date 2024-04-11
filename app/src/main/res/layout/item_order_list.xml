@@ -2,6 +2,11 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="OrderModel"
+            type="com.example.myfoodorder.models.Order" />
+    </data>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -21,18 +26,17 @@
                 android:id="@+id/tv_restaurant_name_item_bag"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nhà hàng tiệc cưới Quang Trung"
+                android:text="@{OrderModel.restaurantWithFoods.restaurant.name}"
                 android:textSize="20dp"
                 android:fontFamily="@font/svn_gilroy_bold"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="ABCDXYZ123"
+                android:text="@{OrderModel.orderDate}"
                 android:textSize="15dp"
                 android:fontFamily="@font/svn_gilroy_regular"
                 android:layout_marginBottom="30dp"/>
-
 
 
             <LinearLayout
@@ -58,7 +62,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="100000"
+                        android:text="@{String.valueOf(OrderModel.amount)}"
                         android:gravity="left"
                         android:textSize="20dp"
                         android:fontFamily="@font/svn_gilroy_bold"/>
@@ -81,15 +85,12 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="4"
+                        android:text="@{String.valueOf(OrderModel.restaurantWithFoods.foods.size())}"
                         android:gravity="right"
                         android:textSize="20dp"
                         android:fontFamily="@font/svn_gilroy_bold"/>
                 </LinearLayout>
             </LinearLayout>
-
-
-
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

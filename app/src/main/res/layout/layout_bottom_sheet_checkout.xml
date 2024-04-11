@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="DialogCheckoutViewModel"
+            type="com.example.myfoodorder.viewmodels.DialogCheckoutViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="10dp"
+            tools:ignore="Autofill,LabelFor">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="6dp"
+                    android:text="CONFIRM ORDER"
+                    android:fontFamily="@font/svn_gilroy_semi_bold"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:text="Name"
+                android:fontFamily="@font/svn_gilroy_regular"
+                android:textSize="14dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/custom_info_edt"
+                android:text="@={DialogCheckoutViewModel.strName}"
+                android:paddingStart="10dp"
+                android:fontFamily="@font/svn_gilroy_medium"
+                android:layout_marginBottom="15dp">
+            </EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:text="Address"
+                android:fontFamily="@font/svn_gilroy_regular"
+                android:textSize="14dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/custom_info_edt"
+                android:text="@={DialogCheckoutViewModel.strAddress}"
+                android:paddingStart="10dp"
+                android:fontFamily="@font/svn_gilroy_medium"
+                android:layout_marginBottom="15dp">
+            </EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:text="Payment method"
+                android:fontFamily="@font/svn_gilroy_regular"
+                android:textSize="14dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="@={DialogCheckoutViewModel.paymentMethod}"
+                android:paddingStart="10dp"
+                android:fontFamily="@font/svn_gilroy_medium"
+                android:background="@drawable/custom_info_edt"
+                android:layout_marginBottom="15dp">
+            </EditText>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:text="Phone number"
+                android:fontFamily="@font/svn_gilroy_regular"
+                android:textSize="14dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/custom_info_edt"
+                android:text="@={DialogCheckoutViewModel.strPhone}"
+                android:paddingStart="10dp"
+                android:fontFamily="@font/svn_gilroy_medium"
+                android:layout_marginBottom="15dp">
+            </EditText>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/button2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Cancel"
+                    android:background="@drawable/gray_border_50dp"
+                    android:layout_marginEnd="5dp"
+                    />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Confirm"
+                    android:background="@drawable/yellow_background"
+                    android:onClick="@{() -> DialogCheckoutViewModel.onConfirmClick()}"
+                    android:layout_marginStart="5dp" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>

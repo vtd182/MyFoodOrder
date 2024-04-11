@@ -51,7 +51,6 @@ public class RestaurantDetailViewModel {
         // get list of foods from restaurant
         ControllerApplication app = ControllerApplication.get(mActivity);
         app.getFoodsByRestaurantId(restaurant.getId(), data -> {
-            GlobalFunction.showToastMessage(mActivity, "Get list foods");
             listFoods.clear();
             listFoods.addAll(data);
         });
