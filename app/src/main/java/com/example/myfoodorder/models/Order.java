@@ -1,8 +1,15 @@
 package com.example.myfoodorder.models;
 
+import android.os.Bundle;
+import android.view.View;
+
 import androidx.databinding.BaseObservable;
 
+import com.example.myfoodorder.constants.Constants;
+import com.example.myfoodorder.constants.GlobalFunction;
 import com.example.myfoodorder.database.RestaurantWithFoods;
+import com.example.myfoodorder.views.activities.OrderDetailActivity;
+import com.example.myfoodorder.views.activities.RestaurantDetailActivity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -104,5 +111,12 @@ public class Order extends BaseObservable implements Serializable {
             }
             amount = total;
         }
+    }
+
+    public void goToOrderDetail(View view) {
+        // Go to restaurant detail
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(Constants.KEY_INTENT_ORDER_OBJECT, this);
+        GlobalFunction.startActivity(view.getContext(), OrderDetailActivity.class, bundle);
     }
 }

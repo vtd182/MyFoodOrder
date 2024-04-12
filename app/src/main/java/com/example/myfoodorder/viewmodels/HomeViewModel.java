@@ -70,7 +70,6 @@ public class HomeViewModel {
                             }
 
                         }
-                        GlobalFunction.showToastMessage(mContext, "Get list restaurant success");
                     }
 
                     @Override
@@ -83,8 +82,6 @@ public class HomeViewModel {
     @BindingAdapter("list_restaurant_data")
     public static void loadListRestaurant(RecyclerView recyclerView, ObservableList<Restaurant> list) {
         if (list == null) {
-            GlobalFunction.showToastMessage(recyclerView.getContext(),
-                    "Error getting restaurant list");
             return;
         }
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(recyclerView.getContext());

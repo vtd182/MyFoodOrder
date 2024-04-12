@@ -50,9 +50,12 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-auth")
-    implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
     implementation("com.google.firebase:firebase-database")
     implementation ("de.hdodenhof:circleimageview:3.1.0")
+
+    // firebase storage
+    implementation ("com.google.firebase:firebase-storage:19.3.1")
+    implementation ("com.google.firebase:firebase-firestore:24.1.0")
 
     //glide
     implementation("com.github.bumptech.glide:glide:4.12.0")
@@ -63,7 +66,6 @@ dependencies {
 
     //event bus
     implementation ("org.greenrobot:eventbus:3.0.0")
-
 
 
 }

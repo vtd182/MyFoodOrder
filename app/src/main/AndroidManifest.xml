@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".ControllerApplication"
@@ -15,6 +16,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyFoodOrder"
         tools:targetApi="31">
+        <activity
+            android:name=".views.activities.EditProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.activities.SplashActivity"
+            android:exported="false" />
         <activity
             android:name=".views.activities.OrderDetailActivity"
             android:exported="false" />

@@ -20,6 +20,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ObservableField;
 
 import com.example.myfoodorder.R;
+import com.example.myfoodorder.constants.GlobalFunction;
 import com.example.myfoodorder.databinding.LayoutBottomSheetRegisterBinding;
 import com.example.myfoodorder.views.activities.MainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -47,13 +48,11 @@ public class DialogLoginViewModel {
         String email = this.email.get();
         String password = this.password.get();
         if (email == null || email.isEmpty()) {
-            Toast.makeText(mActivity, "Please enter email", Toast.LENGTH_SHORT).show();
+            GlobalFunction.showToastMessage(mActivity, "Please enter email");
             return;
         } else if (password == null || password.isEmpty()) {
-            Toast.makeText(mActivity, "Please enter password", Toast.LENGTH_SHORT).show();
+            GlobalFunction.showToastMessage(mActivity, "Please enter password");
             return;
-        } else {
-            Toast.makeText(mActivity, "OK", Toast.LENGTH_SHORT).show();
         }
 
         FirebaseAuth mAuth = FirebaseAuth.getInstance();

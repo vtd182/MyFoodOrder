@@ -188,4 +188,8 @@ public class Food extends BaseObservable implements Serializable {
         iClickItemCartListener.clickDeteteFood(view.getContext(), this, getAdapterPosition());
     }
 
+    public String orderQuantityToString() {
+        return (name + " x" + String.valueOf(orderQuantity));
+    }
+
 }

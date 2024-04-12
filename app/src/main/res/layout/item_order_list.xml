@@ -20,7 +20,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@drawable/dashed_border">
+            android:background="@drawable/dashed_border"
+            android:onClick="@{(view) -> OrderModel.goToOrderDetail(view)}">
 
             <TextView
                 android:id="@+id/tv_restaurant_name_item_bag"

@@ -5,8 +5,22 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.example.myfoodorder.R;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class GlideUtils {
     public static void loadUrlBanner(String url, ImageView imageView) {
+        if (StringUtils.isEmpty(url)) {
+            imageView.setImageResource(R.drawable.img_no_image);
+            return;
+        }
+        Glide.with(imageView.getContext())
+                .load(url)
+                .error(R.drawable.img_no_image)
+                .dontAnimate()
+                .into(imageView);
+    }
+
+    public static void loadUrlAvatar(String url, CircleImageView imageView) {
         if (StringUtils.isEmpty(url)) {
             imageView.setImageResource(R.drawable.img_no_image);
             return;

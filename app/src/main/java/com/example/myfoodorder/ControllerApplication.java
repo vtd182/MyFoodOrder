@@ -2,9 +2,11 @@ package com.example.myfoodorder;
 
 import android.app.Application;
 import android.content.Context;
+import android.net.Uri;
 import android.util.Log;
 
 import com.example.myfoodorder.callbacks.FirebaseCallBack;
+import com.example.myfoodorder.callbacks.UploadCallBack;
 import com.example.myfoodorder.constants.GlobalFunction;
 import com.example.myfoodorder.models.Food;
 import com.example.myfoodorder.models.Order;
@@ -15,13 +17,28 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ControllerApplication extends Application {
     private static final String FIREBASE_URL = "https://foodorder-842d1-default-rtdb.firebaseio.com";
+
+    private static final String STORAGE_URL = "gs://foodorder-842d1.appspot.com";
     private FirebaseDatabase mFirebaseDatabase;
+    private FirebaseStorage mFirebaseStorage;
+    private FirebaseFirestore mFirebaseFirestore;
+
+    public FirebaseStorage getFirebaseStorage() {
+        return mFirebaseStorage;
+    }
+
+    public FirebaseFirestore getFirebaseFirestore() {
+        return mFirebaseFirestore;
+    }
 
     public static ControllerApplication get(Context context) {
         return (ControllerApplication) context.getApplicationContext();
@@ -32,6 +49,8 @@ public class ControllerApplication extends Application {
         super.onCreate();
         FirebaseApp.initializeApp(this);
         mFirebaseDatabase = FirebaseDatabase.getInstance(FIREBASE_URL);
+        mFirebaseStorage = FirebaseStorage.getInstance(STORAGE_URL);
+        mFirebaseFirestore = FirebaseFirestore.getInstance();
     }
 
     public DatabaseReference getRestaurantDatabaseReference() {
@@ -110,6 +129,21 @@ public class ControllerApplication extends Application {
                 GlobalFunction.showToastMessage(getApplicationContext(), "Get list orders failed");
             }
         });
+    }
+
+    public void uploadImage(Uri fileUri, String userId, UploadCallBack callback) {
+        // Tham chiếu đến vị trí lưu trữ ảnh trong Firebase Storage
+        StorageReference storageRef = mFirebaseStorage.getReference().child("images/" + userId + ".jpg");
+
+        storageRef.putFile(fileUri)
+                .addOnSuccessListener(taskSnapshot -> {
+                    // Khi tải lên thành công, lấy URL của ảnh
+                    taskSnapshot.getStorage().getDownloadUrl().addOnSuccessListener(uri -> {
+                        String imageUrl = uri.toString();
+                        callback.onUploadSuccess(imageUrl);
+                    }).addOnFailureListener(callback::onUploadFailure);
+                })
+                .addOnFailureListener(callback::onUploadFailure);
     }
 
 }

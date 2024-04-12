@@ -1,6 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="FoodModel"
+            type="com.example.myfoodorder.models.Food" />
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:onClick="@{(view) -> FoodModel.goToFoodDetail(view)}">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/layout_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:cardCornerRadius="6dp"
+            >
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:food_image="@{FoodModel.imageUrl}"
+                app:srcCompat="@drawable/banana_lickety_split"
+                android:scaleType="centerCrop"
+                />
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@id/layout_image"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_name_item_food"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{FoodModel.orderQuantityToString()}"
+                android:fontFamily="@font/svn_gilroy_semi_bold"
+                android:textSize="20sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/svn_gilroy_regular"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:text="@{FoodModel.description}"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tv_add_item_food"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/svn_gilroy_semi_bold"
+                    android:gravity="right|center"
+                    android:text="@{String.valueOf(FoodModel.totalPrice)}"
+                    android:textSize="15sp"
+                    android:textColor="#FFA500"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>

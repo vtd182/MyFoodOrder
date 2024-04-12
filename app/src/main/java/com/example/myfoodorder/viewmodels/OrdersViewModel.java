@@ -27,7 +27,6 @@ public class OrdersViewModel {
     public OrdersViewModel(Context mContext) {
         this.mContext = mContext;
         loadListOrdersFromDatabase();
-        GlobalFunction.showToastMessage(mContext, listOrders.size() + "");
     }
 
 

@@ -14,9 +14,10 @@ import com.example.myfoodorder.models.Restaurant;
 
 import org.greenrobot.eventbus.EventBus;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class RestaurantWithFoods {
+public class RestaurantWithFoods implements Serializable {
     @Embedded
     public Restaurant restaurant;
     @Relation(
