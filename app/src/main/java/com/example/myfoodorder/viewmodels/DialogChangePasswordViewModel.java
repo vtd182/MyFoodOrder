@@ -80,4 +80,8 @@ public class DialogChangePasswordViewModel {
         confirmPassword.set("");
     }
 
+    public void release() {
+        mActivity = null;
+    }
+
 }

@@ -57,4 +57,9 @@ public class MainViewModel {
             return true;
         });
     }
+
+    public void release() {
+        title = null;
+        isShowToolbar = null;
+    }
 }

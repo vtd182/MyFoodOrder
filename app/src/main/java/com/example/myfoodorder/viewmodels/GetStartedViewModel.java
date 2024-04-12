@@ -55,4 +55,8 @@ public class GetStartedViewModel {
         DialogLoginViewModel dialogLoginViewModel = new DialogLoginViewModel(mActivity, bottomSheetDialog);
         bottomSheetLoginBinding.setDialogLoginViewModel(dialogLoginViewModel);
     }
+
+    public void release() {
+        mActivity = null;
+    }
 }

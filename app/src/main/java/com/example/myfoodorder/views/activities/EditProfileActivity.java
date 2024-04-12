@@ -51,4 +51,12 @@ public class EditProfileActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         mEditProfileViewModel.onActivityResult(requestCode, resultCode, data);
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mEditProfileViewModel != null) {
+            mEditProfileViewModel.release();
+        }
+    }
 }

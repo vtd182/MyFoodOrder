@@ -44,4 +44,12 @@ public class HomeFragment extends BaseFragment {
             mHomeViewModel.release();
         }
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (mHomeViewModel != null) {
+            mHomeViewModel.release();
+        }
+    }
 }

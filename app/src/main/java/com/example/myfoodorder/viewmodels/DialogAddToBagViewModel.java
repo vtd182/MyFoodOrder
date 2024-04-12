@@ -98,4 +98,10 @@ public class DialogAddToBagViewModel {
         food.setOrderQuantity(1);
         mBottomSheetDialog.dismiss();
     }
+
+    public void release() {
+        mActivity = null;
+        mBottomSheetDialog = null;
+        food = null;
+    }
 }

@@ -66,4 +66,8 @@ public class OrderDetailViewModel {
         mActivity.onBackPressed();
     }
 
+    public void release() {
+        mActivity = null;
+    }
+
 }

@@ -46,5 +46,12 @@ public class FoodDetailActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mFoodDetailViewModel != null) {
+            mFoodDetailViewModel.release();
+        }
+    }
 
 }

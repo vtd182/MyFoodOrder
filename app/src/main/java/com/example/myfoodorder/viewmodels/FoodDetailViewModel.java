@@ -56,4 +56,8 @@ public class FoodDetailViewModel {
         DialogAddToBagViewModel dialogAddToBagViewModel = new DialogAddToBagViewModel(mActivity, bottomSheetDialog, food.get());
         bottomSheetBagBinding.setDialogAddToBagViewModel(dialogAddToBagViewModel);
     }
+
+    public void release() {
+        mActivity = null;
+    }
 }

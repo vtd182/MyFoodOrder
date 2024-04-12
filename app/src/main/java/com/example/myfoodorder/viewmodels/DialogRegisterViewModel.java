@@ -131,4 +131,8 @@ public class DialogRegisterViewModel {
         }
         isValidate = true;
     }
+
+    public void release() {
+        mActivity = null;
+    }
 }

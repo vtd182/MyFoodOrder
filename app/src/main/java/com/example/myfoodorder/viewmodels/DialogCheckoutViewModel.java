@@ -76,4 +76,14 @@ public class DialogCheckoutViewModel {
         return String.valueOf(nextId.getAndIncrement());
     }
 
+    public void release() {
+        mContext = null;
+        mBottomSheetDialog = null;
+        listRestaurantWithFoods = null;
+        strName = null;
+        strAddress = null;
+        strPhone = null;
+        paymentMethod = null;
+        iSendOrderSuccessListener = null;
+    }
 }

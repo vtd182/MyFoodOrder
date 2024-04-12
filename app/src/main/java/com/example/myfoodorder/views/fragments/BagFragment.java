@@ -59,4 +59,12 @@ public class BagFragment extends BaseFragment {
     public void onPriceUpdateEvent(PriceUpdateEvent event) {
         mBagViewModel.updatePrice(event.totalString, event.totalPrice);
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().unregister(this);
+        }
+    }
 }

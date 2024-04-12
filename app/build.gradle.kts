@@ -66,6 +66,4 @@ dependencies {
 
     //event bus
     implementation ("org.greenrobot:eventbus:3.0.0")
-
-
 }

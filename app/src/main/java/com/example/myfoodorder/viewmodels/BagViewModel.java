@@ -143,4 +143,10 @@ public class BagViewModel {
         bottomSheetCheckoutBinding.setDialogCheckoutViewModel(dialogCheckoutViewModel);
     }
 
+    public void release() {
+        mContext = null;
+        if (restaurantsWithFoods != null) {
+            restaurantsWithFoods.clear();
+        }
+    }
 }

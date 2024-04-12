@@ -13,6 +13,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.text.Editable;
 import android.util.Log;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -30,6 +31,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import android.view.View;
 
 
 @SuppressLint("ValidFragment")
@@ -78,8 +80,6 @@ public class DialogLoginViewModel {
 
     }
 
-
-
     public void onNavigateToRegister() {
         mBottomSheetDialog.dismiss();
 
@@ -100,4 +100,7 @@ public class DialogLoginViewModel {
         bottomSheetRegisterBinding.setDialogRegisterViewModel(dialogRegisterViewModel);
     }
 
+    public void release() {
+        mActivity = null;
+    }
 }

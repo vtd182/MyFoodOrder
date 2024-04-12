@@ -52,4 +52,15 @@ public class ProfileFragment extends BaseFragment {
             mProfileViewModel.reloadUserInfo();
         }
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (mProfileViewModel != null) {
+            mProfileViewModel.release();
+        }
+        if (EventBus.getDefault().isRegistered(this)) {
+            EventBus.getDefault().unregister(this);
+        }
+    }
 }

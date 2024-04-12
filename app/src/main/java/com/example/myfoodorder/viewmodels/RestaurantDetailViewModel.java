@@ -70,4 +70,7 @@ public class RestaurantDetailViewModel {
         mActivity.onBackPressed();
     }
 
+    public void release() {
+        mActivity = null;
+    }
 }

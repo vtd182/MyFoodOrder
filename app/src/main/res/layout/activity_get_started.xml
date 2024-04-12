@@ -37,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Chon chung toi de duoc nhung thu tot nhat"
+            android:text="Order food from your favorite restaurants"
             android:fontFamily="@font/svn_gilroy_regular"/>
 
         <TextView
@@ -45,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="vi du nhu me cua ban"
+            android:text="Get it delivered to your doorstep"
             android:fontFamily="@font/svn_gilroy_regular"/>
 
         <androidx.appcompat.widget.AppCompatButton

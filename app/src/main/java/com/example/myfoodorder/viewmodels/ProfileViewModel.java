@@ -1,14 +1,17 @@
 package com.example.myfoodorder.viewmodels;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.View;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.databinding.BindingAdapter;
 import androidx.databinding.ObservableField;
 
 import com.example.myfoodorder.constants.GlobalFunction;
 import com.example.myfoodorder.utils.GlideUtils;
 import com.example.myfoodorder.views.activities.EditProfileActivity;
+import com.example.myfoodorder.views.activities.GetStartedActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -52,7 +55,9 @@ public class ProfileViewModel {
     private void getUserPhotoUrlFromFireBase() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
-            setAvtUrl(user.getPhotoUrl().toString());
+            if (user.getPhotoUrl() != null) {
+                setAvtUrl(user.getPhotoUrl().toString());
+            }
         }
     }
     public void setUserName(String userName) {
@@ -86,5 +91,20 @@ public class ProfileViewModel {
     public void reloadUserInfo() {
         getUserNameFromFireBase();
         getUserPhotoUrlFromFireBase();
+    }
+
+    public void signOut() {
+        new AlertDialog.Builder(mContext)
+                .setTitle("Sign Out")
+                .setMessage("Are you sure you want to sign out?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        FirebaseAuth.getInstance().signOut();
+                        GlobalFunction.startActivity(mContext, GetStartedActivity.class);
+                    }
+                })
+                .setNegativeButton("No", null)
+                .show();
     }
 }

@@ -70,4 +70,5 @@ public class OrdersViewModel {
         OrderAdapter orderAdapter = new OrderAdapter(list);
         recyclerView.setAdapter(orderAdapter);
     }
+
 }

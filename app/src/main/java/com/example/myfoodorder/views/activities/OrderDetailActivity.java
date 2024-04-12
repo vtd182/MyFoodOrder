@@ -44,4 +44,12 @@ public class OrderDetailActivity extends AppCompatActivity {
             order  = (Order) bundle.get(Constants.KEY_INTENT_ORDER_OBJECT);
         }
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (orderDetailViewModel != null) {
+            orderDetailViewModel.release();
+        }
+    }
 }

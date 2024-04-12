@@ -90,4 +90,5 @@ public class HomeViewModel {
         RestaurantAdapter restaurantAdapter = new RestaurantAdapter(list);
         recyclerView.setAdapter(restaurantAdapter);
     }
+
 }

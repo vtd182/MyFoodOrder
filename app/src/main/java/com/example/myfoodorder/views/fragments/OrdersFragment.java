@@ -39,4 +39,12 @@ public class OrdersFragment extends BaseFragment {
          if (mainActivity != null)
              mainActivity.setToolBar(true, "Orders");
     }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (mOrdersViewModel != null) {
+            mOrdersViewModel.release();
+        }
+    }
 }

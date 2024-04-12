@@ -42,4 +42,12 @@ public class RestaurantDetailActivity extends AppCompatActivity {
             restaurant = (Restaurant) bundle.get(Constants.KEY_INTENT_RESTAURANT_OBJECT);
         }
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mRestaurantDetailViewModel != null) {
+            mRestaurantDetailViewModel.release();
+        }
+    }
 }

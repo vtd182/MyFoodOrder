@@ -32,4 +32,12 @@ public class GetStartedActivity extends AppCompatActivity {
             return insets;
         });
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (getStartedViewModel != null) {
+            getStartedViewModel.release();
+        }
+    }
 }

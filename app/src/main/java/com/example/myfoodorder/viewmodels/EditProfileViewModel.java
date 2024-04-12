@@ -240,4 +240,5 @@ public class EditProfileViewModel {
         DialogChangePasswordViewModel dialogChangePasswordViewModel = new DialogChangePasswordViewModel(mActivity, bottomSheetDialog);
         bottomChangePasswordBinding.setDialogChangePasswordViewModel(dialogChangePasswordViewModel);
     }
+
 }
