@@ -17,7 +17,7 @@
 - User can change password
 ### Demo Screenshots
 1. Sign up and Sign in
-
+![getStarted](https://github.com/vtd182/MyFoodOrder/blob/main/demo/login_panel.png)
 3. Restaurant list, search restaurant by name, show restaurant detail
 4. Food detail and add food to bag
 5. Bag and checkout
