@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
+import java.text.Normalizer;
+import java.util.regex.Pattern;
+
 public class GlobalFunction {
     public static void showToastMessage(Context context, String message) {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
@@ -33,5 +36,13 @@ public class GlobalFunction {
         } catch (NullPointerException ex) {
             ex.printStackTrace();
         }
+    }
+
+
+    // loai bo dau tieng viet
+    public static String getTextSearch(String input) {
+        String nfdNormalizedString = Normalizer.normalize(input, Normalizer.Form.NFD);
+        Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
+        return pattern.matcher(nfdNormalizedString).replaceAll("");
     }
 }

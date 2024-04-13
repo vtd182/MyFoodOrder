@@ -1,11 +1,16 @@
 package com.example.myfoodorder.viewmodels;
 
+import android.app.Activity;
 import android.content.Context;
 import android.database.Observable;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.BindingAdapter;
 import androidx.databinding.ObservableArrayList;
+import androidx.databinding.ObservableField;
 import androidx.databinding.ObservableList;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -29,6 +34,8 @@ public class HomeViewModel {
     public ObservableList<Restaurant> getListRestaurant() {
         return listRestaurant;
     }
+
+    public ObservableField<String> hint = new ObservableField<>();
 
     public void setListRestaurant(ObservableList<Restaurant> listRestaurant) {
         this.listRestaurant = listRestaurant;
@@ -65,7 +72,10 @@ public class HomeViewModel {
                                 if (StringUtils.isEmpty(key)) {
                                     listRestaurant.add(0, restaurant);
                                 } else {
-                                    // Search restaurant by name
+                                    if (GlobalFunction.getTextSearch(restaurant.getName()).toLowerCase().trim()
+                                            .contains(GlobalFunction.getTextSearch(key))) {
+                                        listRestaurant.add(0, restaurant);
+                                    }
                                 }
                             }
 
@@ -90,5 +100,60 @@ public class HomeViewModel {
         RestaurantAdapter restaurantAdapter = new RestaurantAdapter(list);
         recyclerView.setAdapter(restaurantAdapter);
     }
+
+    public void onClickButtonSearch(EditText editText) {
+        // Handle search button click
+        String key = editText.getText().toString();
+        if (!StringUtils.isEmpty(key)) {
+            searchRestaurant(key);
+        }
+        GlobalFunction.hideSoftKeyboard(ActivityFromContext(mContext));
+
+    }
+
+    public ObservableField<String> getStringHint(EditText editText) {
+        hint.set("Search");
+        // Get hint text for search bar
+        editText.setOnEditorActionListener((v, actionId, event) -> {
+            onClickButtonSearch(editText);
+            return false;
+        });
+
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String strKey = s.toString().trim();
+                if (StringUtils.isEmpty(strKey)) {
+                    searchRestaurant("");
+                }
+            }
+        });
+
+        return hint;
+    }
+
+    private Activity ActivityFromContext(Context mContext) {
+        if (mContext instanceof Activity) {
+            return (Activity) mContext;
+        }
+        return null;
+    }
+
+    public void searchRestaurant(String key) {
+        if (listRestaurant != null) {
+            listRestaurant.clear();
+        }
+        getListRestaurantFromFirebase(key);
+    }
+
+
 
 }

@@ -18,21 +18,30 @@
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:padding="10dp">
 
             <EditText
+                android:id="@+id/edtSearchName"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
                 android:background="@drawable/custom_search_bar"
                 android:fontFamily="@font/svn_gilroy_regular"
-                android:hint="Search"
+                android:hint="@{HomeViewModel.getStringHint(edtSearchName)}"
                 android:paddingStart="20dp"
                 android:imeOptions="actionSearch"
                 android:inputType="text"
                 android:textSize="18dp" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_search"
+                android:background="@android:color/transparent"
+                android:padding="10dp"
+                android:onClick="@{() -> HomeViewModel.onClickButtonSearch(edtSearchName)}"/>
 
         </RelativeLayout>
         <TextView
