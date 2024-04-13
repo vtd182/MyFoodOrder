@@ -17,12 +17,16 @@
 - User can change password
 ### Demo Screenshots
 1. Sign up and Sign in
-![getStarted](https://github.com/vtd182/MyFoodOrder/blob/main/demo/login_panel.png)
-3. Restaurant list, search restaurant by name, show restaurant detail
-4. Food detail and add food to bag
-5. Bag and checkout
-- Edit item on bag
-- Checkout
-6. View all order, order detail
-7. Profile, edit profile
+![1](https://github.com/vtd182/MyFoodOrder/blob/main/demo/1.png)
+2. Restaurant list, search restaurant by name, show restaurant detail
+![2](https://github.com/vtd182/MyFoodOrder/blob/main/demo/2.png)
+3. Food detail and add food to bag
+![3](https://github.com/vtd182/MyFoodOrder/blob/main/demo/3.png)
+4. Bag and checkout
+![4](https://github.com/vtd182/MyFoodOrder/blob/main/demo/4.png)
+5. View all order, order detail
+![5](https://github.com/vtd182/MyFoodOrder/blob/main/demo/5.png)
+6. Profile, edit profile
+![6](https://github.com/vtd182/MyFoodOrder/blob/main/demo/6.png)
+
 
