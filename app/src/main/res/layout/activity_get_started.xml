@@ -21,7 +21,8 @@
             android:layout_height="333dp"
             android:layout_gravity="center"
             android:src="@drawable/getstarted"
-            android:layout_marginTop="70dp"/>
+            android:layout_marginTop="70dp"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:id="@+id/textView3"
@@ -29,7 +30,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/svn_gilroy_semi_bold"
             android:gravity="center"
-            android:text="Food to blow your mind!"
+            android:text="@string/Food_to_blow_your_mind_str"
             android:textSize="24sp" />
 
         <TextView
@@ -37,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Order food from your favorite restaurants"
+            android:text="@string/Order_food_from_your_favorite_restaurants_str"
             android:fontFamily="@font/svn_gilroy_regular"/>
 
         <TextView
@@ -45,7 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Get it delivered to your doorstep"
+            android:text="@string/Get_it_delivered_to_your_doorstep_str"
             android:fontFamily="@font/svn_gilroy_regular"/>
 
         <androidx.appcompat.widget.AppCompatButton
@@ -59,7 +60,8 @@
             android:background="@drawable/yellow_background"
             android:fontFamily="@font/svn_gilroy_semi_bold"
             android:onClick="@{() -> GetStartedViewModel.onRegisterClick()}"
-            android:text="Create account" />
+            android:text="@string/Create_account_str"
+            tools:ignore="VisualLintButtonSize" />
 
 
         <androidx.appcompat.widget.AppCompatButton
@@ -72,9 +74,10 @@
             android:layout_marginEnd="20dp"
             android:background="@drawable/black_background_with_yellow_border"
             android:fontFamily="@font/svn_gilroy_semi_bold"
-            android:text="Login"
+            android:text="@string/Login_str"
             android:onClick="@{() -> GetStartedViewModel.onLoginClick()}"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            tools:ignore="VisualLintButtonSize" />
     </LinearLayout>
 
 

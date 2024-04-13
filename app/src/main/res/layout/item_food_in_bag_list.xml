@@ -107,7 +107,7 @@
             android:id="@+id/tvDeleteItemFood"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:background="@drawable/remove"
+            android:background="@drawable/ic_remove_item"
             android:layout_alignParentEnd="true"
             android:onClick="@{() -> FoodModel.onClickButtonDelete(tvDeleteItemFood)}"
             >

@@ -2,4 +2,25 @@
     <string name="app_name">MyFoodOrder</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Save_str">Save</string>
+    <string name="Name_str">Name</string>
+    <string name="Phone_number_str">Phone number</string>
+    <string name="Change_password_str">Change password</string>
+    <string name="Edit_profile_str">Edit profile</string>
+    <string name="Description_str">Description</string>
+    <string name="Add_to_bag_str">Add to bag</string>
+    <string name="Order_food_from_your_favorite_restaurants_str">Order food from your favorite restaurants</string>
+    <string name="Food_to_blow_your_mind_str">Food to blow your mind!</string>
+    <string name="Get_it_delivered_to_your_doorstep_str">Get it delivered to your doorstep</string>
+    <string name="Create_account_str">Create account</string>
+    <string name="Login_str">Login</string>
+    <string name="Total_str">Total:</string>
+    <string name="_112km_away_str">112km away</string>
+    <string name="Menu_str">Menu</string>
+    <string name="All_restaurant_str">All restaurant</string>
+    <string name="check_out_str">Check out</string>
+    <string name="subtotal_str">Subtotal</string>
+    <string name="_0_vnd_str">0 VND</string>
+    <string name="delivery_str">Delivery</string>
+    <string name="total_str">Total</string>
 </resources>

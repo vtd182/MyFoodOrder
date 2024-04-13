@@ -28,26 +28,28 @@
                 android:background="@drawable/custom_search_bar"
                 android:fontFamily="@font/svn_gilroy_regular"
                 android:hint="@{HomeViewModel.getStringHint(edtSearchName)}"
-                android:paddingStart="20dp"
                 android:imeOptions="actionSearch"
                 android:inputType="text"
-                android:textSize="18dp" />
+                android:paddingStart="20dp"
+                android:textSize="18sp"
+                tools:ignore="Autofill,RtlSymmetry,SpeakableTextPresentCheck,VisualLintTextFieldSize" />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:src="@drawable/ic_search"
                 android:background="@android:color/transparent"
+                android:onClick="@{() -> HomeViewModel.onClickButtonSearch(edtSearchName)}"
                 android:padding="10dp"
-                android:onClick="@{() -> HomeViewModel.onClickButtonSearch(edtSearchName)}"/>
+                android:src="@drawable/ic_search"
+                tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
         </RelativeLayout>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="All restaurant"
+            android:text="@string/All_restaurant_str"
             android:textSize="20sp"
             android:fontFamily="@font/svn_gilroy_semi_bold"
             android:layout_margin="10dp">

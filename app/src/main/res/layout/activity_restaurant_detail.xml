@@ -29,7 +29,7 @@
                 android:src="@drawable/ic_back_arrow"
                 android:scaleX="0.4"
                 android:scaleY="0.4"
-                >
+                tools:ignore="ContentDescription">
 
             </ImageView>
 
@@ -46,7 +46,7 @@
                 android:scaleType="centerCrop"
                 app:restaurant_banner_image="@{RestaurantDetailViewModel.getRestaurant().imageUrl}"
                 android:src="@drawable/banana_lickety_split"
-                />
+                tools:ignore="ContentDescription" />
 
 
             <LinearLayout
@@ -76,7 +76,8 @@
                         android:scaleY="0.5"
                         android:rating="@{RestaurantDetailViewModel.getRestaurant().rating}"
                         android:progressTint="#FFA500"
-                        android:isIndicator="true"/>
+                        android:isIndicator="true"
+                        tools:ignore="VisualLintBounds" />
 
 
                     <FrameLayout
@@ -93,14 +94,15 @@
                             android:drawablePadding="10dp"
                             android:fontFamily="@font/svn_gilroy_regular"
                             android:gravity="center"
-                            android:text="112km away" />
+                            android:text="@string/_112km_away_str"
+                            tools:ignore="RtlHardcoded,UseCompatTextViewDrawableXml" />
                     </FrameLayout>
 
                 </LinearLayout>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Menu"
+                    android:text="@string/Menu_str"
                     android:fontFamily="@font/svn_gilroy_semi_bold"
                     android:textSize="20sp" />
             </LinearLayout>

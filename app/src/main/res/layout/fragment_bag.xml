@@ -43,18 +43,19 @@
                      <TextView
                          android:layout_width="wrap_content"
                          android:layout_height="wrap_content"
-                         android:text="Subtotal"
+                         android:text="@string/subtotal_str"
                          android:textSize="16sp"
                          android:layout_weight="1"
                          android:fontFamily="@font/svn_gilroy_semi_bold"/>
                      <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="0 VND"
+                            android:text="@string/_0_vnd_str"
                             android:layout_weight="1"
                             android:textSize="16sp"
                             android:gravity="right"
-                            android:fontFamily="@font/svn_gilroy_semi_bold"/>
+                            android:fontFamily="@font/svn_gilroy_semi_bold"
+                         tools:ignore="RtlHardcoded" />
                  </LinearLayout>
 
                  <LinearLayout
@@ -65,18 +66,19 @@
                      <TextView
                          android:layout_width="wrap_content"
                          android:layout_height="wrap_content"
-                         android:text="Delivery"
+                         android:text="@string/delivery_str"
                          android:textSize="16sp"
                          android:layout_weight="1"
                          android:fontFamily="@font/svn_gilroy_semi_bold"/>
                      <TextView
                          android:layout_width="wrap_content"
                          android:layout_height="wrap_content"
-                         android:text="0 VND"
+                         android:text="@string/_0_vnd_str"
                          android:layout_weight="1"
                          android:textSize="16sp"
                          android:gravity="right"
-                         android:fontFamily="@font/svn_gilroy_semi_bold"/>
+                         android:fontFamily="@font/svn_gilroy_semi_bold"
+                         tools:ignore="RtlHardcoded" />
                  </LinearLayout>
 
                  <LinearLayout
@@ -87,7 +89,7 @@
                      <TextView
                          android:layout_width="wrap_content"
                          android:layout_height="wrap_content"
-                         android:text="Total"
+                         android:text="@string/total_str"
                          android:textSize="16sp"
                          android:layout_weight="1"
                          android:fontFamily="@font/svn_gilroy_bold"/>
@@ -99,7 +101,8 @@
                          android:layout_weight="1"
                          android:textSize="16sp"
                          android:gravity="right"
-                         android:fontFamily="@font/svn_gilroy_semi_bold"/>
+                         android:fontFamily="@font/svn_gilroy_semi_bold"
+                         tools:ignore="RtlHardcoded" />
                  </LinearLayout>
 
                  <androidx.appcompat.widget.AppCompatButton
@@ -107,10 +110,11 @@
                      android:layout_height="60dp"
                      android:background="@drawable/yellow_background"
                      android:fontFamily="@font/svn_gilroy_semi_bold"
-                     android:text="Check out"
+                     android:text="@string/check_out_str"
                      android:onClick="@{() -> BagViewModel.onClickCheckOut()}"
                      android:textAllCaps="false"
-                     android:textSize="16sp" />
+                     android:textSize="16sp"
+                     tools:ignore="VisualLintButtonSize" />
 
              </LinearLayout>
 

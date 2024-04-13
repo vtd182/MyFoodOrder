@@ -29,7 +29,7 @@
                 android:layout_centerInParent="true"
                 android:text="@{FoodDetailViewModel.getFood().name}"
                 android:fontFamily="@font/svn_gilroy_semi_bold"
-                android:textSize="20dp" />
+                android:textSize="20sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -39,7 +39,8 @@
                 android:textSize="20sp"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:paddingEnd="20dp">
+                android:paddingEnd="20dp"
+                tools:ignore="RelativeOverlap,RtlSymmetry">
 
             </TextView>
 
@@ -51,7 +52,8 @@
                 app:cardElevation="0.1dp"
                 app:cardBackgroundColor="@color/transparent_white"
                 android:layout_centerVertical="true"
-                android:onClick="@{() -> FoodDetailViewModel.onClickButtonBack()}">
+                android:onClick="@{() -> FoodDetailViewModel.onClickButtonBack()}"
+                tools:ignore="RtlHardcoded">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -61,7 +63,7 @@
                     android:src="@drawable/ic_back_arrow"
                     android:scaleX="0.4"
                     android:scaleY="0.4"
-                    >
+                    tools:ignore="ContentDescription">
                 </ImageView>
 
             </androidx.cardview.widget.CardView>
@@ -88,13 +90,13 @@
                     android:scaleType="centerCrop"
                     android:src="@drawable/banana_lickety_split"
                     app:food_image="@{FoodDetailViewModel.getFood().imageUrl}"
-                    />
+                    tools:ignore="ContentDescription" />
             </androidx.cardview.widget.CardView>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Description"
+                android:text="@string/Description_str"
                 android:fontFamily="@font/svn_gilroy_semi_bold"
                 android:textSize="20sp"
                 android:layout_marginTop="20dp"
@@ -122,10 +124,11 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/yellow_background"
             android:fontFamily="@font/svn_gilroy_semi_bold"
-            android:text="Add to bag"
+            android:text="@string/Add_to_bag_str"
             android:onClick="@{() -> FoodDetailViewModel.onAddToBagClick()}"
             android:textAllCaps="false"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:ignore="VisualLintButtonSize" />
     </RelativeLayout>
 
 </layout>
